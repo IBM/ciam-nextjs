@@ -4,11 +4,11 @@ import Image from "next/image";
 import { Shield, FileText, Clock, Phone, ArrowRight } from "lucide-react";
 import { getLoginUrl } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { useRouter, useSearchParams } from "next/navigation"; // Consolidated imports
-import { useEffect, useState } from "react"; // Added useEffect, useState
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
-export default function LandingPage() {
+function LandingPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     const code = searchParams.get("code");
-    const authError = searchParams.get("error"); // Check for errors from auth provider
+    const authError = searchParams.get("error");
 
     if (authError) {
       setError(
@@ -27,8 +27,7 @@ export default function LandingPage() {
           searchParams.get("error_description") || authError
         }`
       );
-      // Optionally, clean up URL
-      router.replace("/", undefined); // Use replace to remove query params from URL
+      router.replace("/", undefined);
       return;
     }
 
@@ -53,12 +52,10 @@ export default function LandingPage() {
                 "Failed to complete login."
             );
           }
-          // Session is set by the API route. Redirect to dashboard.
           router.replace("/dashboard");
         } catch (err: any) {
           console.error("Error during login:", err);
           setError(err.message || "An unexpected error occurred during login.");
-          // Clean up URL
           router.replace("/");
           setIsLoading(false);
           setLoginState(false);
@@ -69,7 +66,6 @@ export default function LandingPage() {
   }, [searchParams, router]);
 
   const handleLogin = async () => {
-    // Reset any previous errors
     setError(null);
     const loginUrl = await getLoginUrl();
     if (loginUrl) {
@@ -90,7 +86,6 @@ export default function LandingPage() {
               <p className="text-lg font-medium text-slate-700">
                 Processing login...
               </p>
-              {/* You can add a spinner here */}
             </div>
           </div>
         )}
@@ -130,7 +125,6 @@ export default function LandingPage() {
             <p className="text-lg font-medium text-slate-700">
               Processing login...
             </p>
-            {/* You can add a spinner here */}
           </div>
         </div>
       )}
@@ -210,7 +204,6 @@ export default function LandingPage() {
         </div>
       </header>
       <main className="flex-1">
-        {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-slate-50 to-indigo-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-slate-200 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-4 md:px-6 relative">
@@ -253,7 +246,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section id="features" className="w-full py-12 md:py-24 bg-white">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -304,7 +296,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Policies Section */}
         <section
           id="policies"
           className="w-full py-12 md:py-24 bg-gradient-to-br from-slate-50 to-blue-50"
@@ -425,7 +416,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
         <section id="testimonials" className="w-full py-12 md:py-24 bg-white">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -483,7 +473,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section
           id="contact"
           className="w-full py-12 md:py-24 bg-gradient-to-br from-slate-50 to-blue-50"
@@ -491,42 +480,12 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6">
             <div className="flex items-center justify-center text-center">
               <div className="space-y-4">
-                {/* <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700 mb-2">
-                  Contact Us
-                </div> */}
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-slate-800 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
                   Get insured today!
                 </h2>
                 <p className="max-w-[600px] text-slate-600 md:text-xl">
                   Signup today and get started with your insurance coverage.
                 </p>
-                {/* <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-blue-100 p-2 text-blue-600">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <span>1-800-VERI-INSURE</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-blue-100 p-2 text-blue-600">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                      </svg>
-                    </div>
-                    <span>support@veriinsure.com</span>
-                  </div>
-                </div> */}
                 <div className="pt-4">
                   <Link href="/signup" className="hidden md:block">
                     <Button className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 shadow-md hover:shadow-lg transition-all">
@@ -567,5 +526,13 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function LandingPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LandingPageContent />
+    </Suspense>
   );
 }
