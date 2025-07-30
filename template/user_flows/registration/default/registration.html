@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/ui/assets/img/favicon.ico"
+    />
+
+    <!-- Do not remove, Carbon style is used as base -->
+    <link rel="stylesheet" href="/profile/static/carbon-components.min.css" />
+    <link
+      rel="stylesheet"
+      href="/profile/static/registration.css?version=@REGISTRATION_VERSION@"
+    />
+    <!---->
+
+    <!-- Optionally override carbon styles using the common theme.css (common/page_components/default/page_style.css in Theme files) -->
+    <link
+      rel="stylesheet"
+      href="/template/v1.0/static/theme.css?themeId=@THEME_ID@"
+    />
+    <!---->
+
+    <title>Sign Up - VeriInsure</title>
+  </head>
+
+  <body class="register-@FLOW_URL_NAME@">
+    <div
+      class="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 to-blue-50"
+    >
+      <div class="flex min-h-screen items-center justify-center py-12">
+        <div
+          class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 md:grid-cols-2 lg:gap-20"
+        >
+          <div
+            class="flex flex-col justify-center space-y-6 p-8 bg-white rounded-2xl shadow-lg"
+          >
+            @PAGE_HEADER@
+            <div style="margin-bottom: 2rem">
+              <h1
+                style="
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  margin-bottom: 1rem;
+                  background: linear-gradient(
+                    to right,
+                    #1e293b,
+                    #2563eb,
+                    #4f46e5
+                  );
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  color: transparent;
+                "
+              >
+                Create your account
+              </h1>
+              <p style="color: #64748b">
+                Fill in your details to get started with VeriInsure
+              </p>
+            </div>
+            @REGISTRATION_FORM@
+          </div>
+          <div class="hidden md:block relative">
+            <div
+              class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 opacity-30 blur-lg"
+            ></div>
+            <div
+              class="relative h-full w-full rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-50 p-6 shadow-md"
+            >
+              <div class="space-y-4">
+                <h3
+                  class="text-2xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent"
+                >
+                  Manage your insurance with ease
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex items-center gap-3">
+                    <div class="rounded-full bg-blue-100 p-2 text-blue-600">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-4 w-4"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-700"
+                      >View and manage all your policies</span
+                    >
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="rounded-full bg-blue-100 p-2 text-blue-600">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-4 w-4"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-700"
+                      >Access policy documents anytime</span
+                    >
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="rounded-full bg-blue-100 p-2 text-blue-600">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-4 w-4"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-700"
+                      >Update your coverage when needed</span
+                    >
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="rounded-full bg-blue-100 p-2 text-blue-600">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-4 w-4"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-700"
+                      >Get 24/7 customer support</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading overlay when form is submitted -->
+    <div id="loader" class="bx--loading-overlay">
+      <div data-loading class="bx--loading">
+        <svg class="bx--loading__svg" viewBox="-75 -75 150 150">
+          <title>Loading</title>
+          <circle class="bx--loading__stroke" cx="0" cy="0" r="37.5" />
+        </svg>
+      </div>
+    </div>
+    <!---->
+
+    <!-- Do not remove, functionality of registration form will be lost -->
+    <script
+      type="text/javascript"
+      src="/profile/static/carbon-components.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/profile/static/registration.js?version=@REGISTRATION_VERSION@"
+    ></script>
+    <script type="text/javascript" src="/usc/js/ieCheck.js"></script>
+    <!---->
+  </body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/ui/assets/img/favicon.ico"
+    />
+    <link rel="stylesheet" href="/usc/css/stateless.css" />
+    <link rel="stylesheet" href="/idaas/mtfim/static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="/template/v1.0/static/theme.css?themeId=@THEME_ID@"
+    />
+    <link
+      rel="stylesheet"
+      href="/template/common/page_components/default/page_style.css"
+    />
+
+    <title>$LOGIN_TITLE$</title>
+
+    <script>
+      const idSources = @ID_SOURCES@;
+      function showSocialOptions() {
+        var foundOther = false;
+        for(let i = 0; i < idSources.length; i++) {
+          const idSource = idSources[i];
+
+          if(idSource.type === 'CLOUDDIRECTORY') {
+            continue;
+          }
+
+          let elemID = idSource.type.toLowerCase() + "-connect";
+          let elem = document.getElementById(elemID);
+          elem.style.display = '';
+          elem.href = idSource.loginUrl;
+          foundOther = true;
+        }
+
+        if (!foundOther) {
+          document.getElementById("divSocial").style.display = 'none';
+        }
+      }
+
+      function showPasswordLogin(e) {
+      	document.getElementById("passwordless-signin").style.display = 'none';
+      	document.getElementById("cloud-directory").style.display = 'block';
+      	return false;
+      }
+
+      function showPasswordlessLogin(e) {
+      	document.getElementById("passwordless-signin").style.display = 'block';
+      	document.getElementById("cloud-directory").style.display = 'none';
+      	return false;
+      }
+
+      window.addEventListener('load', (e) => {
+      	showSocialOptions();
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="/idaas/mtfim/static/lsp.js?locale=@LOCALE@"
+    ></script>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="login-form-container">
+        @PAGE_HEADER@
+        <div class="space-y-2 mb-6">
+          <h1
+            class="text-3xl font-bold"
+            style="
+              text-align: center;
+              background: linear-gradient(to right, #1e293b, #0530ad);
+              background-clip: text;
+              color: transparent;
+            "
+          >
+            Welcome back
+          </h1>
+          <p style="color: #64748b">
+            Enter your credentials to access your account
+          </p>
+        </div>
+        <div style="width: 100%; text-align: center" id="divSocial">
+          <div
+            class="tx--social"
+            style="margin: auto; max-width: 600px; display: flex; gap: 15px"
+          >
+            <a
+              href="#"
+              class="social-button"
+              style="display: none"
+              id="google-connect"
+            >
+              <span>Google</span></a
+            >
+            <a
+              href="#"
+              class="social-button"
+              style="display: none"
+              id="facebook-connect"
+            >
+              <span>Facebook</span></a
+            >
+          </div>
+          <div class="divider">
+            <h2>OR</h2>
+          </div>
+        </div>
+        <p class="cs-select-login-provider-instructions"></p>
+        <div class="passwordless-signin" id="passwordless-signin">
+          <div class="passwordless-options cs-flex-row"></div>
+          <div class="cs-flex-row" style="padding-top: 50px">
+            <span>Don't have passwordless login set up?</span>
+            <a
+              style="padding-left: 10px"
+              href="#"
+              onclick="return showPasswordLogin()"
+              ><span>Sign in with password</span></a
+            >
+          </div>
+        </div>
+        <div class="cloud-directory" id="cloud-directory">
+          <form id="cloud-directory-form" method="post">
+            <div class="bx--form-item bx--text-input-wrapper">
+              <label
+                for="user-name-input"
+                class="bx--label label"
+                id="user-name-label"
+                >$LOGIN_USER_NAME$</label
+              >
+              <div class="bx--text-input__field-wrapper">
+                <input
+                  id="user-name-input"
+                  type="text"
+                  class="bx--text-input"
+                  name="username"
+                  placeholder="$LOGIN_USER_NAME$"
+                  value="@LOGIN_HINT@"
+                  tabindex="1"
+                />
+              </div>
+            </div>
+            <div class="bx--form-item bx--text-input-wrapper">
+              <div class="w-100 display-flex">
+                <label
+                  for="password-input"
+                  class="bx--label label half-width"
+                  id="password-label"
+                  >$LOGIN_PASSWORD$</label
+                >
+                <a
+                  id="forgot-password-link"
+                  class="bx--link forgot-pwd"
+                  href=""
+                  tabindex="4"
+                  >$LOGIN_WITH_FORGOT_PASSWORD$</a
+                >
+              </div>
+              <div class="bx--text-input__field-wrapper">
+                <input
+                  id="password-input"
+                  type="password"
+                  class="bx--text-input"
+                  name="password"
+                  placeholder="$LOGIN_PASSWORD$"
+                  tabindex="2"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <input type="hidden" name="operation" value="verify" />
+            <div class="submit-wrapper" style="display: flex">
+              <button
+                class="button cs-hide-focus"
+                id="login-button"
+                value="login"
+                type="submit"
+                tabindex="3"
+              >
+                $LOGIN_BUTTON$
+              </button>
+            </div>
+
+            <!--div style="width:100%; text-align:center" id="divSocial">
+                                <div class="tx--social" style="margin:auto;max-width:600px">
+                                    <a href="#" class="social-button" style="display:none;" id="google-connect"> <span>Google</span></a>
+                                    <a href="#" class="social-button" style="display:none;" id="linkedin-connect"> <span>LinkedIn</span></a>
+                                </div>
+                                
+                            </div-->
+          </form>
+        </div>
+        <div style="padding-top: 30px; text-align: center">
+          <p style="color: #64748b">Don't have an account?</p>
+          <a
+            href="http://localhost:3000/"
+            style="
+              color: #2563eb;
+              font-weight: 600;
+              transition: color 0.3s ease;
+            "
+            >Sign up</a
+          >
+        </div>
+
+        <!--<div id="login-failed-message">
+                        <p id="login-failed-text" class="error-message">@LOGIN_ERROR_MESSAGE@</p>
+                    </div>-->
+
+        <div
+          class="alternate-options-dropdown separator"
+          id="alternate-options-dropdown"
+          style="display: none"
+        >
+          <div class="bx--form-item">
+            <div class="bx--dropdown__wrapper">
+              <ul
+                data-dropdown
+                data-value
+                id="dropdown-id"
+                class="bx--dropdown"
+                tabindex="0"
+              >
+                <li class="bx--dropdown-text" id="dropdown-text">
+                  $SOCIAL_LOGIN_ALTERNATE_SIGNIN$
+                </li>
+                <li class="bx--dropdown__arrow-container">
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    style="will-change: transform"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bx--dropdown__arrow"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 11L3 6l.7-.7L8 9.6l4.3-4.3.7.7z"></path>
+                  </svg>
+                </li>
+                <li>
+                  <ul class="bx--dropdown-list" id="id-sources"></ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          id="alternate-signin-toggle"
+          class="alternate-signin-toggle"
+          style="display: none"
+        >
+          <a class="bx--link" id="alternate-signin-link"
+            >$SOCIAL_LOGIN_ALTERNATE_SIGNIN$</a
+          >
+        </div>
+
+        @PAGE_FOOTER@
+      </div>
+      <div class="login-promo-container">
+        <div class="promo-blur"></div>
+        <div class="promo-content">
+          <div class="promo-space-y-4">
+            <h3 class="promo-heading">Manage your insurance with ease</h3>
+            <ul class="promo-list">
+              <li class="promo-list-item">
+                <div class="promo-icon-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="promo-icon"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <span class="promo-text"
+                  >View and manage all your policies</span
+                >
+              </li>
+              <li class="promo-list-item">
+                <div class="promo-icon-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="promo-icon"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <span class="promo-text">Access policy documents anytime</span>
+              </li>
+              <li class="promo-list-item">
+                <div class="promo-icon-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="promo-icon"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <span class="promo-text">Update your coverage when needed</span>
+              </li>
+              <li class="promo-list-item">
+                <div class="promo-icon-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="promo-icon"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <span class="promo-text">Get 24/7 customer support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/usc/js/ieCheck.js"></script>
+  </body>
+</html>

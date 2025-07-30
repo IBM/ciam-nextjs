@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="ui/assets/img/favicon.ico"
+    />
+    <link rel="stylesheet" href="usc/css/stateless.css" />
+    <link
+      rel="stylesheet"
+      href="/template/v1.0/static/theme.css?themeId=@THEME_ID@"
+    />
+    <title id="title">$LOGOUT_OK_TITLE$</title>
+  </head>
+
+  <body onload="myFunc()">
+    <div class="cs-content cs-ui-logout">
+      @PAGE_HEADER@
+      <div class="content">
+        <h1
+          style="
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #1e293b, #2563eb, #4f46e5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+          "
+        >
+          $LOGOUT_OK_SIGNOUT_SUCCESSFUL$
+        </h1>
+        <p style="color: #64748b; margin-bottom: 2rem">
+          You have been successfully signed out of your account.
+        </p>
+        <div class="separator"></div>
+        <a
+          class="cs-link-button cs-button-primary-deprecated"
+          id="cs-button-return-home"
+          href="http://localhost:3000/"
+        >
+          <span>$LOGOUT_OK_RETURN_HOME$</span>
+        </a>
+      </div>
+      @PAGE_FOOTER@
+    </div>
+
+    <script language="JavaScript">
+      const hasVisitedKey = "hasVisited";
+      const hasVisited = localStorage.getItem(hasVisitedKey);
+
+      sessionStorage.clear();
+      localStorage.clear();
+
+      // put 'hasVisited' back if it exists
+      if (hasVisited) {
+        localStorage.setItem(hasVisitedKey, hasVisited);
+      }
+
+      function myFunc() {
+        window.location.href = "http://localhost:3000/";
+      }
+    </script>
+  </body>
+</html>

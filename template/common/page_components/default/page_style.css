@@ -1,0 +1,632 @@
+/* css for customization
+Add styling here to override classes from <tenant>/usc/css/stateless.css
+*/
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom right, #f8fafc, #eff6ff);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: #1e293b;
+}
+
+/* Login button on login page */
+.login-main button {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  width: 100%;
+  max-width: 300px;
+  justify-content: center;
+  line-height: 30px;
+  text-align: center;
+  display: inline-block;
+  padding: 13px 45px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  border-radius: 0.5rem;
+  margin: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.login-main button:hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.button,
+.button:hover {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+}
+
+/* Social Login Buttons */
+.social-button {
+  background-position: 25px 0px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 49%;
+  border-radius: 0.5rem;
+  margin: 10px auto;
+  outline: rgb(255, 255, 255) none 0px;
+  padding-left: 20%;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+#facebook-connect {
+  background: rgb(255, 255, 255)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook.svg?sanitize=true")
+    no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  border: 1px solid rgb(60, 90, 154);
+}
+
+#facebook-connect:hover {
+  border-color: rgb(60, 90, 154);
+  background: rgb(60, 90, 154)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook-white.svg?sanitize=true")
+    no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-out;
+}
+
+#facebook-connect span {
+  box-sizing: border-box;
+  color: rgb(60, 90, 154);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 0.3s ease;
+}
+
+#facebook-connect:hover span {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.bx--label {
+  font-weight: 600;
+  color: #1e293b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* To show the lines on right and left sides of the text */
+.divider::after,
+.divider::before {
+  content: "";
+  border: 1px solid #e2e8f0;
+  flex: 1;
+}
+
+/* Space on left and right sides of text */
+.divider:not(:empty)::before {
+  margin-right: 0.5em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 0.5em;
+}
+
+.divider h2 {
+  color: #64748b;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#google-connect {
+  background: rgb(255, 255, 255)
+    url("https://sae1stgrsmpgprdshb2c.z6.web.core.windows.net/Goole_Icon.svg")
+    no-repeat scroll 13px 0px / 28px 45px padding-box border-box;
+  border: 1px solid rgb(220, 74, 61);
+}
+
+#google-connect:hover {
+  border-color: rgb(220, 74, 61);
+  background: rgb(220, 74, 61)
+    url("https://sae1stgrsmpgprdshb2c.z6.web.core.windows.net/Goole_Icon.svg")
+    no-repeat scroll 13px 0px / 28px 45px padding-box border-box;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-out;
+}
+
+#google-connect span {
+  box-sizing: border-box;
+  color: rgb(220, 74, 61);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 0.3s ease;
+}
+
+#google-connect:hover span {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#twitter-connect {
+  background: rgb(255, 255, 255)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/twitter.png")
+    no-repeat scroll 5px 1px / 45px 45px padding-box border-box;
+  border: 1px solid rgb(85, 172, 238);
+}
+
+#twitter-connect:hover {
+  border-color: rgb(85, 172, 238);
+  background: rgb(85, 172, 238)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/twitter-white.png")
+    no-repeat scroll 5px 1px / 45px 45px padding-box border-box;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-out;
+}
+
+#twitter-connect span {
+  box-sizing: border-box;
+  color: rgb(85, 172, 238);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 0.3s ease;
+}
+
+#twitter-connect:hover span {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#linkedin-connect {
+  background: rgb(255, 255, 255)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/linkedin.svg?sanitize=true")
+    no-repeat scroll 13px 0px / 28px 45px padding-box border-box;
+  border: 1px solid rgb(0, 119, 181);
+}
+
+#linkedin-connect:hover {
+  border-color: rgb(0, 119, 181);
+  background: rgb(0, 119, 181)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/linkedin-white.svg?sanitize=true")
+    no-repeat scroll 13px 0px / 28px 45px padding-box border-box;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-out;
+}
+
+#linkedin-connect span {
+  box-sizing: border-box;
+  color: rgb(0, 119, 181);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(0, 119, 181);
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 0.3s ease;
+}
+
+#linkedin-connect:hover span {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#ibmid-connect {
+  border: 1px solid #2563eb;
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+#ibmid-connect:hover {
+  border-color: #2563eb;
+  background-color: #2563eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-out;
+}
+
+#ibmid-connect span {
+  box-sizing: border-box;
+  color: #2563eb;
+  cursor: pointer;
+  text-align: center;
+  border: 0px none rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 0.3s ease;
+}
+
+#ibmid-connect:hover span {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#registrationform {
+  margin-left: 35px;
+}
+
+.cs-button-return-home {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  color: white;
+  padding: 13px 45px;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.cs-button-return-home:hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cs-button-primary-deprecated,
+.cs-button-primary-deprecated:not([href=""]) {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 48px;
+  line-height: 30px;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.cs-button-primary-deprecated:hover,
+.cs-button-primary-deprecated:not([href=""]):hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Various buttons in the end user UI */
+button.cs-button,
+a.cs-link-button,
+a.bx--btn--primary,
+button.half-width,
+.ovd--bx-btn-secondary,
+button.bx--content-switcher--selected {
+  background: linear-gradient(to right, #2563eb, #4f46e5) !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+button.cs-button:hover,
+a.cs-link-button:hover,
+a.bx--btn--primary:hover,
+button.half-width:hover,
+.ovd--bx-btn-secondary:hover,
+button.bx--content-switcher--selected:hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Make graphics on buttons light */
+.ovd--bx-btn-secondary svg {
+  fill: #ffffff !important;
+}
+
+/* Links on MFA registration page */
+a.method-action,
+button.bx--btn--ghost {
+  color: #2563eb !important;
+  transition: color 0.3s ease;
+}
+
+a.method-action:hover,
+button.bx--btn--ghost:hover {
+  color: #1d4ed8 !important;
+}
+
+/* signature and user presence enable/disable toggle */
+div.verify-toggle {
+  --cds-support-02: #2563eb !important;
+}
+
+/* Lock icons on user profile page */
+div.usc--field-w-icon svg {
+  fill: #2563eb !important;
+}
+
+a:link {
+  color: #2563eb;
+  background-color: transparent;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1d4ed8;
+  background-color: transparent;
+}
+
+/* Left-hand panel of profile page */
+div.usc--profile-left {
+  display: none;
+}
+
+/* Header row of tables */
+.bx--data-table tbody th,
+.bx--data-table th,
+.bx--data-table th.bx--table-column-checkbox,
+.bx--data-table thead,
+.bx--table-sort {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  color: white;
+}
+
+/* Form elements */
+.bx--text-input,
+.bx--password-input {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  transition: border-color 0.3s ease, box--shadow 0.3s ease;
+}
+
+.bx--text-input:focus,
+.bx--password-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+/* Content container styling */
+.cs-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  padding: 2rem;
+  position: initial;
+  overflow: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 50vw;
+}
+
+/* Heading styles */
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.heading img {
+  height: 40px;
+  margin-right: 1rem;
+}
+
+.heading p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(to right, #1e293b, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Error messages */
+.password-error-message,
+.error-message {
+  color: #ef4444;
+  background-color: #fee2e2;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border-left: 4px solid #ef4444;
+}
+
+/* Success messages */
+.success-message {
+  color: #10b981;
+  background-color: #d1fae5;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border-left: 4px solid #10b981;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-main,
+.content,
+.registration {
+  animation: fadeIn 0.5s ease-out;
+  width: 95%;
+}
+
+.login-footer {
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cs-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .social-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* New styles for the two-column layout */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: linear-gradient(to bottom right, #f8fafc, #eff6ff);
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.login-grid {
+  display: grid;
+  width: 100%;
+  max-width: 72rem;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .login-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-grid {
+    gap: 5rem;
+  }
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 550px;
+}
+
+.login-promo-container {
+  display: none;
+  position: relative;
+  height: 790px;
+}
+
+@media (min-width: 768px) {
+  .login-promo-container {
+    display: block;
+  }
+}
+
+.promo-blur {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  left: -0.25rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(to right, #3b82f6, #4f46e5);
+  opacity: 0.3;
+  filter: blur(16px);
+}
+
+.promo-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  background-image: linear-gradient(to bottom right, #dbeafe, #eef2ff);
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.promo-space-y-4 > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.promo-heading {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #1d4ed8, #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.promo-list {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+}
+
+.promo-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.promo-icon-container {
+  border-radius: 9999px;
+  background-color: #dbeafe;
+  padding: 0.5rem;
+  color: #2563eb;
+}
+
+.promo-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.promo-text {
+  color: #334155;
+}
